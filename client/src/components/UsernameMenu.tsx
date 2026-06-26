@@ -1,4 +1,3 @@
-import React from 'react'
 import { DropdownMenu, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from './ui/dropdown-menu'
 import { CircleUserRound } from 'lucide-react'
 import { useAuth0 } from '@auth0/auth0-react'
@@ -13,7 +12,7 @@ export default function UsernameMenu() {
     <DropdownMenu>
         <DropdownMenuTrigger className='flex items-center px-3 font-bold hover:text-gray-100 gap-2'>
         <CircleUserRound className='text-white-500'/>
-        {user?.email}
+        {user?.email ?? 'Guest'}
         </DropdownMenuTrigger>
         <DropdownMenuContent>
             <DropdownMenuItem>

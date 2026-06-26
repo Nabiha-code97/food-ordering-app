@@ -19,7 +19,5 @@ export default function AuthCallbackPage() {
         navigate("/");
     },[createUser,navigate,user]);
 
-    return <>Loading...</>;
-    
-  
+    return <>Loading...</>;  
 }
