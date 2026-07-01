@@ -14,7 +14,7 @@ const queryClient = new QueryClient({
     },
   },
 });
-
+document.getElementById("loader")?.remove();
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <Router>
