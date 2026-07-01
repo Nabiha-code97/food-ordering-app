@@ -1,6 +1,8 @@
 import Footer from "@/components/Footer";
+import FullPageLoader from "@/components/FullPageLoader";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import { useAuth0 } from "@auth0/auth0-react";
 
 type Props ={
     children: React.ReactNode;
@@ -8,6 +10,10 @@ type Props ={
 }
 
 const Layout = ({children, showHero}: Props) =>{
+    const {isLoading} = useAuth0();
+     if(isLoading){
+        return <FullPageLoader />;
+    }
     return(
         <div className="flex flex-col min-h-screen">
             <Header />
