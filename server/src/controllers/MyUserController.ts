@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import User from "../models/MyUser.ts";
+import User from "../models/MyUser.js";
 
 export const createCurrentUser = async (req: Request, res: Response)=>{
     //check id user exists
