@@ -20,15 +20,16 @@ function Auth0ProviderWithNavigate({children}: Props) {
         throw new Error("unable to initialize authentication");
     }
   return (
-    <Auth0Provider 
+    <Auth0Provider
     domain={domain}
     clientId={clientId}
     authorizationParams={
         {redirect_uri:redirectUri,
         audience,
         }
-        
     }
+    useRefreshTokens={true}
+    cacheLocation="memory"
     onRedirectCallback={onRedirectCallback}
     >
         {children}

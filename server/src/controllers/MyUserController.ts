@@ -1,10 +1,8 @@
 import type { Request, Response } from "express";
-import User from "../models/MyUser.js";
+import User from "../models/user.ts";
 
 export const createCurrentUser = async (req: Request, res: Response)=>{
-    //check id user exists
-    //craete if not
-    //return user obj
+
     
     try {
         const {auth0Id} = req.body;
@@ -12,7 +10,7 @@ export const createCurrentUser = async (req: Request, res: Response)=>{
             auth0Id: auth0Id,
         });
         if(existingUser){
-            res.status(200).json({message: "User already exists!"});
+            return res.status(200).json({message: "User already exists!"});
         }
 
         const newUser = new User(req.body);
