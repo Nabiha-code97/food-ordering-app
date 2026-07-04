@@ -2,7 +2,7 @@ import express from "express";
 import multer from "multer";
 import { jwtCheck, jwtParse } from "../middlewares/auth.ts";
 import { validateMyRestaurantRequest } from "../middlewares/validate.ts";
-import { createMyRestaurant, updateMyRestaurant } from "../controllers/MyRestaurantController.ts";
+import { createMyRestaurant, getMyRestaurant, updateMyRestaurant } from "../controllers/MyRestaurantController.ts";
 
 const router = express.Router();
 
@@ -23,7 +23,7 @@ const upload = multer({
 //   MyRestaurantController.updateOrderStatus
 // );
 
-// router.get("/", jwtCheck, jwtParse, MyRestaurantController.getMyRestaurant);
+router.get("/", jwtCheck, jwtParse, getMyRestaurant);
 
 router.post("/", upload.single("imageFile"), validateMyRestaurantRequest, jwtCheck, jwtParse, createMyRestaurant);
 router.put("/", upload.single("imageFile"), validateMyRestaurantRequest, jwtCheck, jwtParse, updateMyRestaurant);

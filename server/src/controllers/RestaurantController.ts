@@ -1,7 +1,7 @@
 import type { Request, Response } from "express";
 import Restaurant from "../models/restaurant.ts";
 
-const getRestaurant = async (req: Request, res: Response) => {
+export const getRestaurant = async (req: Request, res: Response) => {
   try {
     const restaurantId = req.params.restaurantId;
 
@@ -17,7 +17,7 @@ const getRestaurant = async (req: Request, res: Response) => {
   }
 };
 
-const searchRestaurant = async (req: Request, res: Response) => {
+export const searchRestaurant = async (req: Request, res: Response) => {
   try {
     const city = req.params.city;
 
@@ -85,7 +85,3 @@ const searchRestaurant = async (req: Request, res: Response) => {
   }
 };
 
-export default {
-  getRestaurant,
-  searchRestaurant,
-};
