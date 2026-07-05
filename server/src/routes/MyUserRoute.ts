@@ -1,7 +1,7 @@
 import express from "express";
-import { createCurrentUser, getCurrentUser, updateCurrentuser } from "../controllers/MyUserController.ts";
-import { jwtCheck, jwtParse } from "../middlewares/auth.ts";
-import { validateMyUserRequest } from "../middlewares/validate.ts";
+import { createCurrentUser, getCurrentUser, updateCurrentuser } from "../controllers/MyUserController.js";
+import { jwtCheck, jwtParse } from "../middlewares/auth.js";
+import { validateMyUserRequest } from "../middlewares/validate.js";
 
 const router = express.Router();
 
