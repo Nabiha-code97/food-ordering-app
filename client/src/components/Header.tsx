@@ -5,11 +5,11 @@ import logo from "../assets/logo.jpg";
 
 const Header = () => {
   return (
-    <div className="bg-orange-400 py-6">
-      <div className="px-4 container mx-auto flex justify-between items-center text-white">
+    <div className="bg-white-400 py-6 border-b-3 border-orange-500">
+      <div className="px-4 container mx-auto flex justify-between items-center text-orange-500">
         <Link
           to="/"
-          className="flex gap-2 items-center text-3xl font-bold tracking-tight text-white"
+          className="flex gap-2 items-center text-3xl font-bold tracking-tight text-orange-500"
         >
           <img className="w-10 rounded-3xl" src={logo} alt="logo" />
           MERNeats.com

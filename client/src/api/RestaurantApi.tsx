@@ -39,6 +39,7 @@ export const useSearchRestaurants = (
 
     const response = await fetch(
       `${API_BASE_URL}/api/restaurant/search/${city}?${params.toString()}`,
+      
     );
 
     if (!response.ok) {
@@ -49,7 +50,7 @@ export const useSearchRestaurants = (
   };
 
   const { data: results, isLoading } = useQuery({
-    queryKey: ["searchRestaurants", searchState],
+    queryKey: ["searchRestaurants",city, searchState],
     queryFn: createSearchRequest,
     enabled: !!city,
   });
