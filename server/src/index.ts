@@ -1,11 +1,11 @@
 import express from "express";
 import type { Request, Response } from "express";
 import cors from "cors";
-import connectDB from "./config/db.ts";
-import userRoute from "./routes/MyUserRoute.ts"
-import myRestaurantRoute from "./routes/MyRestaurantRoute.ts"
-import restaurantRoute from "./routes/RestaurantRoute.ts"
-import orderRoute from "./routes/OrderRoute.ts";
+import connectDB from "./config/db.js";
+import userRoute from "./routes/MyUserRoute.js"
+import myRestaurantRoute from "./routes/MyRestaurantRoute.js"
+import restaurantRoute from "./routes/RestaurantRoute.js"
+import orderRoute from "./routes/OrderRoute.js";
 import { v2 as cloudinary } from "cloudinary";
 
 const app = express();

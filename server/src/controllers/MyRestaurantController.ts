@@ -1,8 +1,8 @@
 import type { Request, Response } from "express";
-import Restaurant from "../models/restaurant.ts";
+import Restaurant from "../models/restaurant.js";
 import { v2 as cloudinary } from "cloudinary";
 import mongoose from "mongoose";
-import Order from "../models/order.ts";
+import Order from "../models/order.js";
 
 export const getMyRestaurant = async (req: Request, res: Response) => {
   try {

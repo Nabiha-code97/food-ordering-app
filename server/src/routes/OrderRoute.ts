@@ -1,6 +1,6 @@
 import express from "express";
-import { createCheckoutSession, getMyOrders, stripeWebhookHandler } from "../controllers/OrderController.ts";
-import { jwtCheck, jwtParse } from "../middlewares/auth.ts";
+import { createCheckoutSession, getMyOrders, stripeWebhookHandler } from "../controllers/OrderController.js";
+import { jwtCheck, jwtParse } from "../middlewares/auth.js";
 
 const router = express.Router();
 
