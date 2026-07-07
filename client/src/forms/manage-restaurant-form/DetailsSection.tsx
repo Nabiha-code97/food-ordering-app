@@ -66,9 +66,24 @@ const DetailsSection = () => {
         name="deliveryPrice"
         render={({ field }) => (
           <FormItem className="max-w-[25%]">
-            <FormLabel>Delivery price (Rs)</FormLabel>
+            <FormLabel>Delivery price (£)</FormLabel>
             <FormControl>
-              <Input {...field} className="bg-white" placeholder="100" onChange={(e) => field.onChange(Number(e.target.value))}/>
+              <Input
+                {...field}
+                className="bg-white"
+                placeholder="100"
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (value === "") {
+                    field.onChange(undefined);
+                    return;
+                  }
+                  const parsed = Number(value);
+                  if (!Number.isNaN(parsed)) {
+                    field.onChange(parsed);
+                  }
+                }}
+              />
             </FormControl>
             <FormMessage />
           </FormItem>
@@ -81,7 +96,22 @@ const DetailsSection = () => {
           <FormItem className="max-w-[25%]">
             <FormLabel>Estimated Delivery Time (minutes)</FormLabel>
             <FormControl>
-              <Input {...field} className="bg-white" placeholder="30" onChange={(e) => field.onChange(Number(e.target.value))} />
+              <Input
+                {...field}
+                className="bg-white"
+                placeholder="30"
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (value === "") {
+                    field.onChange(undefined);
+                    return;
+                  }
+                  const parsed = Number(value);
+                  if (!Number.isNaN(parsed)) {
+                    field.onChange(parsed);
+                  }
+                }}
+              />
             </FormControl>
             <FormMessage />
           </FormItem>

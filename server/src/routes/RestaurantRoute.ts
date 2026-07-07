@@ -1,6 +1,6 @@
 import express from "express";
 import { param } from "express-validator";
-import { getRestaurant, searchRestaurant } from "../controllers/RestaurantController.js";
+import { getRestaurant, searchRestaurant } from "../controllers/RestaurantController.ts";
 
 
 const router = express.Router();

@@ -40,7 +40,22 @@ const MenuItemInput = ({ index, removeMenuItem }: Props) => {
               Price (Rs) <FormMessage />
             </FormLabel>
             <FormControl>
-              <Input {...field} placeholder="8.00" className="bg-white" onChange={(e) => field.onChange(Number(e.target.value))}/>
+              <Input
+                {...field}
+                placeholder="8.00"
+                className="bg-white"
+                onChange={(e) => {
+                  const value = e.target.value;
+                  if (value === "") {
+                    field.onChange(undefined);
+                    return;
+                  }
+                  const parsed = Number(value);
+                  if (!Number.isNaN(parsed)) {
+                    field.onChange(parsed);
+                  }
+                }}
+              />
             </FormControl>
           </FormItem>
         )}

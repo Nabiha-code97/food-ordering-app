@@ -1,8 +1,9 @@
 import express from "express";
 import multer from "multer";
-import { jwtCheck, jwtParse } from "../middlewares/auth.js";
-import { validateMyRestaurantRequest } from "../middlewares/validate.js";
-import { createMyRestaurant, getMyRestaurant, updateMyRestaurant } from "../controllers/MyRestaurantController.js";
+import { jwtCheck, jwtParse } from "../middlewares/auth.ts";
+import { validateMyRestaurantRequest } from "../middlewares/validate.ts";
+import { createMyRestaurant, getMyRestaurant, getMyRestaurantOrders, updateMyRestaurant, updateOrderStatus } from "../controllers/MyRestaurantController.ts";
+
 
 const router = express.Router();
 
@@ -14,19 +15,19 @@ const upload = multer({
   },
 });
 
-// router.get("/order", jwtCheck, jwtParse, getMyRestaurantOrders );
+router.get("/order", jwtCheck, jwtParse, getMyRestaurantOrders );
 
-// router.patch(
-//   "/order/:orderId/status",
-//   jwtCheck,
-//   jwtParse,
-//   MyRestaurantController.updateOrderStatus
-// );
+router.patch(
+  "/order/:orderId/status",
+  jwtCheck,
+  jwtParse,
+  updateOrderStatus
+);
 
 router.get("/", jwtCheck, jwtParse, getMyRestaurant);
 
-router.post("/", upload.single("imageFile"), validateMyRestaurantRequest, jwtCheck, jwtParse, createMyRestaurant);
-router.put("/", upload.single("imageFile"), validateMyRestaurantRequest, jwtCheck, jwtParse, updateMyRestaurant);
+router.post("/", jwtCheck, jwtParse, upload.single("imageFile"), validateMyRestaurantRequest, createMyRestaurant);
+router.put("/", jwtCheck, jwtParse, upload.single("imageFile"), validateMyRestaurantRequest, updateMyRestaurant);
 
 
 export default router;

@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import Restaurant from "../models/restaurant.js";
+import Restaurant from "../models/restaurant.ts";
 
 export const getRestaurant = async (req: Request, res: Response) => {
   try {

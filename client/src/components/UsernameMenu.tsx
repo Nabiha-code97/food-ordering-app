@@ -14,7 +14,7 @@ export default function UsernameMenu() {
   const { user, logout } = useAuth0();
   return (
     <DropdownMenu>
-      <DropdownMenuTrigger className="flex items-center px-3 font-bold hover:text-gray-100 gap-2">
+      <DropdownMenuTrigger className="flex items-center px-3 font-bold hover:text-gray-400 gap-2">
         <CircleUserRound className="text-white-500" />
         {user?.email ?? "Guest"}
       </DropdownMenuTrigger>
