@@ -29,7 +29,7 @@ function Auth0ProviderWithNavigate({children}: Props) {
         }
     }
     useRefreshTokens={true}
-    cacheLocation="memory"
+    cacheLocation="localstorage"
     onRedirectCallback={onRedirectCallback}
     >
         {children}
